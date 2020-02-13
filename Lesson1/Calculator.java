@@ -15,9 +15,9 @@ public class Calculator {
 			} else if (operator == '/') {
 				result = value1 / value2;
 			} else if (operator == '^') {
-				result=1;
+				result = 1;
 				for (int i = 0; i < value2; i++) {
-					result = result*value1;
+					result *= value1;
 				}	
 			} else if (operator == '%') {
 				result = value1 % value2;
@@ -29,6 +29,5 @@ public class Calculator {
 		} else {
 			System.out.println("One or more numbers are negative...");
 		}
-		
 	}
 }
