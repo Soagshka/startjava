@@ -10,19 +10,6 @@ public class Jaeger {
 	private String status;
 	private String bodyLanguage;
 
-	public boolean drift() {
-		System.out.println("Вы вошли в дрифт");
-		return true;
-	}
-
-	public void move() {
-		System.out.println("Вы прошли 5 шагов");
-	}
-
-	public String scanKaiju() {
-		return "nothing";
-	}
-
 	public String getBodyLanguage() {
 		return bodyLanguage;
 	}
@@ -101,5 +88,18 @@ public class Jaeger {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public boolean drift() {
+		System.out.println("Вы вошли в дрифт");
+		return true;
+	}
+
+	public void move() {
+		System.out.println("Вы прошли 5 шагов");
+	}
+
+	public String scanKaiju() {
+		return "nothing";
 	}
 }

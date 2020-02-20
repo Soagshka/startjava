@@ -17,6 +17,7 @@ public class JaegerTest {
 		System.out.println("Origin = " + jaegerOne.getOrigin());
 		System.out.println("Name = " + jaegerOne.getModelName());
 		System.out.println("Armor = " + jaegerOne.getArmor());
+		
 		Jaeger jaegerTwo = new Jaeger();
 		jaegerTwo.setModelName("Gipsy Avenger");
 		jaegerTwo.setMark("Mark-6");
