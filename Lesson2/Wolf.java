@@ -5,26 +5,6 @@ public class Wolf {
 	private int age;
 	private String color;
 
-	public void go() {
-		System.out.println("Nymeria go");
-	}
-
-	public void sit() {
-		System.out.println("Nymeria sit");
-	}
-
-	public void run() {
-		System.out.println("Nymeria run");
-	}
-
-	public void woof() {
-		System.out.println("Nymeria woof");
-	}
-
-	public void hunt() {
-		System.out.println("Nymeria hunt");
-	}
-
 	public char getSex() {
 		return sex;
 	}
@@ -59,7 +39,6 @@ public class Wolf {
 		} else {
 			this.age = age;
 		}
-		
 	}
 
 	public String getColor() {
@@ -68,5 +47,25 @@ public class Wolf {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public void go() {
+		System.out.println("Nymeria go");
+	}
+
+	public void sit() {
+		System.out.println("Nymeria sit");
+	}
+
+	public void run() {
+		System.out.println("Nymeria run");
+	}
+
+	public void woof() {
+		System.out.println("Nymeria woof");
+	}
+
+	public void hunt() {
+		System.out.println("Nymeria hunt");
 	}
 }
