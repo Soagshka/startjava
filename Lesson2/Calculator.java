@@ -22,7 +22,7 @@ public class Calculator {
 	            break;
 	        case "^":	
 	            result = 1;
-				for (int i = 0; i < number2; i++) {
+	            for (int i = 0; i < number2; i++) {
 					result *= number1;
 				}	
 	            System.out.println("Возведение в степень : " + result);
