@@ -13,10 +13,12 @@ public class JaegerTest {
 		jaegerOne.setBodyLanguage("Street Fighter");
 		jaegerOne.move();
 		jaegerOne.scanKaiju();
+
 		System.out.println("Speed = " + jaegerOne.getSpeed());
 		System.out.println("Origin = " + jaegerOne.getOrigin());
 		System.out.println("Name = " + jaegerOne.getModelName());
 		System.out.println("Armor = " + jaegerOne.getArmor());
+		
 		Jaeger jaegerTwo = new Jaeger();
 		jaegerTwo.setModelName("Gipsy Avenger");
 		jaegerTwo.setMark("Mark-6");
@@ -29,6 +31,7 @@ public class JaegerTest {
 		jaegerTwo.setStatus("Destroyed");
 		jaegerTwo.setBodyLanguage("Street Fighter");
 		jaegerTwo.drift();
+
 		System.out.println("Status = " + jaegerTwo.getStatus());
 		System.out.println("Weight = " + jaegerTwo.getWeight());
 		System.out.println("Mark = " + jaegerTwo.getMark());
