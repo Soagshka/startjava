@@ -16,11 +16,11 @@ public class GuessNumberTest {
 			Player playerTwo = new Player(playerTwoName);
 			GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
 			guessNumber.playGame(randomNumber);
-        	do {
-        		System.out.print("Хотите продолжить? [da/net]: ");
-	        	userDesire = in.nextLine();
-	        	//System.out.println("userDesire = " + userDesire);
-        	} while (!(userDesire.equals("da") || userDesire.equals("net")));
+			do {
+				System.out.print("Хотите продолжить? [da/net]: ");
+				userDesire = in.nextLine();
+				//System.out.println("userDesire = " + userDesire);
+			} while (!(userDesire.equals("da") || userDesire.equals("net")));
 		} while (userDesire.equals("da"));
 	}
 }
