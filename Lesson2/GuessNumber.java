@@ -27,7 +27,6 @@ public class GuessNumber {
 			playerTwo.setNumber(playerTwoNumber);
 			isGuessedPlayerTwo = checkNumber(playerTwo, randomNumber);
 		} while (!isGuessedPlayerOne || !isGuessedPlayerTwo);
-		
 	}
 
 	public boolean checkNumber(Player player, int randomNumber) {
