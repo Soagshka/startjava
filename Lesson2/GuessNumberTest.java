@@ -10,19 +10,12 @@ public class GuessNumberTest {
 			int randomNumber = random.nextInt(101);
 			System.out.print("Введите имя первого игрока : ");
 			String playerOneName = in.nextLine();
-			System.out.print("Введите число первого игрока : ");
-			int playerOneNumber = in.nextInt();
-			Player playerOne = new Player(playerOneName, playerOneNumber);
-			GuessNumber guessNumber = new GuessNumber();
-			guessNumber.playGame(playerOne.getName(), randomNumber, playerOne.getNumber());
-			in.nextLine();
+			Player playerOne = new Player(playerOneName);
 			System.out.print("Введите имя второго игрока : ");
 			String playerTwoName = in.nextLine();
-			System.out.print("Введите число второго игрока : ");
-			int playerTwoNumber = in.nextInt();
-			Player playerTwo = new Player(playerTwoName, playerTwoNumber);
-			guessNumber.playGame(playerTwo.getName(), randomNumber, playerTwo.getNumber());
-			in.nextLine();
+			Player playerTwo = new Player(playerTwoName);
+			GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
+			guessNumber.playGame(randomNumber);
         	do {
         		System.out.print("Хотите продолжить? [da/net]: ");
 	        	userDesire = in.nextLine();
