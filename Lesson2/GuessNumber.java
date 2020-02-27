@@ -39,7 +39,7 @@ public class GuessNumber {
 		}
 	}
 
-	public int enterNumbers(Player player) {
+	public int enterNumber(Player player) {
 		Scanner in = new Scanner(System.in, "UTF-8");
 		System.out.print("Введите пожалуйста свое число " + player.getName() + " : ");
 		int playerNumber = in.nextInt();
