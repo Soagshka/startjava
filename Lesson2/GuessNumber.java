@@ -14,19 +14,16 @@ public class GuessNumber {
 	public void playGame() {
 		Random random = new Random();
 		randomNumber = random.nextInt(101);
-		Scanner in = new Scanner(System.in, "UTF-8");
-		boolean isGuessedPlayerOne = false;
-		boolean isGuessedPlayerTwo = false;
 		do {
-			System.out.print("Введите пожалуйста свое число " + playerOne.getName() + " : ");
-			int playerOneNumber = in.nextInt();
-			playerOne.setNumber(playerOneNumber);
-			isGuessedPlayerOne = checkNumber(playerOne, randomNumber);
-			System.out.print("Введите пожалуйста свое число " + playerTwo.getName() + " : ");
-			int playerTwoNumber = in.nextInt();
-			playerTwo.setNumber(playerTwoNumber);
-			isGuessedPlayerTwo = checkNumber(playerTwo, randomNumber);
-		} while (!isGuessedPlayerOne || !isGuessedPlayerTwo);
+			playerOne.setNumber(enterNumbers(playerOne));
+			if (checkNumber(playerOne, randomNumber)) {
+				break;
+			}
+			playerTwo.setNumber(enterNumbers(playerTwo));
+			if (checkNumber(playerTwo, randomNumber)) {
+				break;
+			}
+		} while (true);
 	}
 
 	public boolean checkNumber(Player player, int randomNumber) {
@@ -40,5 +37,12 @@ public class GuessNumber {
 			System.out.println(player.getName() + " угадал!");
 			return true;
 		}
+	}
+
+	public int enterNumbers(Player player) {
+		Scanner in = new Scanner(System.in, "UTF-8");
+		System.out.print("Введите пожалуйста свое число " + player.getName() + " : ");
+		int playerNumber = in.nextInt();
+		return playerNumber;
 	}
 }
