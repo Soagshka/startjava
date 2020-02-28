@@ -41,8 +41,8 @@ public class GuessNumber {
 			}
 			return false; 
 		} else {
-				System.out.println(player.getName() + " угадал!");
-				return true;
+			System.out.println(player.getName() + " угадал!");
+			return true;
 		}
 	}
 }
