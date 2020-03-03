@@ -1,5 +1,6 @@
 *.class
 Lesson1/*.class
+out/
 
 
 
