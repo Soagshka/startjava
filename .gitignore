@@ -1,6 +1,5 @@
 *.class
 Lesson1/*.class
 out/
-
-
-
+/.idea/
+/startjava.iml

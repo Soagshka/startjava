@@ -2,27 +2,26 @@ package com.startjava.lesson2_3.calculator;
 
 public class Calculator {
 
-	public void calculate(int number1, String operator, int number2) {
+	public void calculate(String expression) {
+		String[] expressionArray = expression.split(" ");
+		int number1 = Integer.parseInt(expressionArray[0]);
+		int number2 = Integer.parseInt(expressionArray[2]);
 		if (number1 > 0 && number2 > 0) {
-			switch (operator) {
+			switch (expressionArray[1]) {
 				case "+":
-					System.out.println("Сумма : " + (number1 + number2));
+					System.out.println("Сумма : " + Math.addExact(number1, number2));
 					break;
 				case "-":
-					System.out.println("Разность : " + (number1 - number2));
+					System.out.println("Разность : " + Math.subtractExact(number1, number2));
 					break;
 				case "*":
-					System.out.println("Произведение : " + (number1 * number2));
+					System.out.println("Произведение : " + Math.multiplyExact(number1, number2));
 					break;
 				case "/":
 					System.out.println("Частное : " + (number1 / number2));
 					break;
 				case "^":
-					int result = 1;
-					for (int i = 0; i < number2; i++) {
-						result *= number1;
-					}
-					System.out.println("Возведение в степень : " + result);
+					System.out.println("Возведение в степень : " + Math.pow(number1, number2));
 					break;
 				case "%":
 					System.out.println("Остаток от деления : " + (number1 % number2));
