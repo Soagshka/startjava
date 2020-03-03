@@ -1,3 +1,5 @@
+package com.startjava.lesson2_3.robot;
+
 public class JaegerTest {
 	public static void main(String[] args) {
 		Jaeger jaegerOne = new Jaeger("Gipsy Danger (Jaeger)", "Mark-3", "USA", 79.25f, 1.980f, 7, 8, 6, "-", "Street Fighter");
