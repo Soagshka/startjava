@@ -1,4 +1,4 @@
-package com.startjava.lesson2_3.game;
+package com.startjava.lesson2_3_4.game;
 
 public class Player {
 	private String name;
@@ -25,7 +25,7 @@ public class Player {
 		return numbers;
 	}
 
-	public void setNumbers(int[] numbers) {
-		this.numbers = numbers;
+	public void setNumbers(int number, int index) {
+		numbers[index] = number;
 	}
 }

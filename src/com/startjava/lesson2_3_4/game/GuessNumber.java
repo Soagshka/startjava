@@ -1,4 +1,4 @@
-package com.startjava.lesson2_3.game;
+package com.startjava.lesson2_3_4.game;
 
 import java.util.Scanner;
 import java.util.Random;
@@ -29,8 +29,7 @@ public class GuessNumber {
                 i++;
                 break;
             }
-            numbersPlayer1[i] = playerOne.getNumber();
-            playerOne.setNumbers(numbersPlayer1);
+            playerOne.setNumbers(playerOne.getNumber(), i);
 
             playerTwo.setNumber(enterNumber(playerTwo));
             if (checkNumber(playerTwo)) {
@@ -38,8 +37,7 @@ public class GuessNumber {
                 i++;
                 break;
             }
-            numbersPlayer2[i] = playerTwo.getNumber();
-            playerTwo.setNumbers(numbersPlayer2);
+            playerTwo.setNumbers(playerTwo.getNumber(), i);
         }
         if (winnerName != null) {
             System.out.println("Игрок " + winnerName + " угадал число " + randomNumber + " с " + i + " попытки");
