@@ -18,28 +18,25 @@ public class GuessNumber {
     public void playGame() {
         Random random = new Random();
         randomNumber = random.nextInt(101);
-        System.out.println(Arrays.toString(playerOne.getNumbers(10)));
-        System.out.println(Arrays.toString(playerTwo.getNumbers(10)));
-        playerOne.clear();
-        playerTwo.clear();
         System.out.println("У вас 10 попыток");
         int i;
         for (i = 0; i < 10; i++) {
-            System.out.println(" i === " + i);
             playerOne.setNumber(enterNumber(playerOne));
-            playerOne.setNumberToArray(playerOne.getNumber(), i);
+            playerOne.setNumber(playerOne.getNumber(), i);
             if (checkNumber(playerOne, i)) {
                 break;
             }
 
             playerTwo.setNumber(enterNumber(playerTwo));
-            playerTwo.setNumberToArray(playerTwo.getNumber(), i);
+            playerTwo.setNumber(playerTwo.getNumber(), i);
             if (checkNumber(playerTwo, i)) {
                 break;
             }
         }
         printPlayerNumbers(playerOne, i);
         printPlayerNumbers(playerTwo, i);
+        playerOne.clear(i);
+        playerTwo.clear(i);
     }
 
     private int enterNumber(Player player) {
@@ -54,6 +51,9 @@ public class GuessNumber {
             } else {
                 System.out.println("Введенное " + player.getName() + " число больше того, что загадал компьютер");
             }
+            if (iteration == 9) {
+                System.out.println("У игрока " + player.getName() + " кончились попытки!");
+            }
             return false;
         } else {
             System.out.println("Игрок " + player.getName() + " угадал число " + randomNumber + " с " + (iteration + 1) + " попытки");
@@ -63,9 +63,9 @@ public class GuessNumber {
 
     private void printPlayerNumbers(Player player, int length) {
         System.out.print("Массив игрока " + player.getName() + " :");
-        for (int value : player.getNumbers(length+1)) {
-            System.out.print(value + " ");
+        for (int num : player.getNumbers(length + 1)) {
+            System.out.print(num + " ");
         }
-		System.out.println();
+        System.out.println();
     }
 }
