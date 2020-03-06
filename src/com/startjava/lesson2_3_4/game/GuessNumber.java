@@ -1,5 +1,6 @@
 package com.startjava.lesson2_3_4.game;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -17,36 +18,28 @@ public class GuessNumber {
     public void playGame() {
         Random random = new Random();
         randomNumber = random.nextInt(101);
+        System.out.println(Arrays.toString(playerOne.getNumbers(10)));
+        System.out.println(Arrays.toString(playerTwo.getNumbers(10)));
+        playerOne.clear();
+        playerTwo.clear();
         System.out.println("У вас 10 попыток");
-        int[] numbersPlayer1 = new int[10];
-        int[] numbersPlayer2 = new int[10];
-        String winnerName = null;
         int i;
         for (i = 0; i < 10; i++) {
+            System.out.println(" i === " + i);
             playerOne.setNumber(enterNumber(playerOne));
-            if (checkNumber(playerOne)) {
-                winnerName = playerOne.getName();
-                i++;
+            playerOne.setNumberToArray(playerOne.getNumber(), i);
+            if (checkNumber(playerOne, i)) {
                 break;
             }
-            playerOne.setNumbers(playerOne.getNumber(), i);
 
             playerTwo.setNumber(enterNumber(playerTwo));
-            if (checkNumber(playerTwo)) {
-                winnerName = playerTwo.getName();
-                i++;
+            playerTwo.setNumberToArray(playerTwo.getNumber(), i);
+            if (checkNumber(playerTwo, i)) {
                 break;
             }
-            playerTwo.setNumbers(playerTwo.getNumber(), i);
         }
-        if (winnerName != null) {
-            System.out.println("Игрок " + winnerName + " угадал число " + randomNumber + " с " + i + " попытки");
-        } else {
-            checkCountOfTries(playerOne);
-            printArray(playerOne);
-            checkCountOfTries(playerTwo);
-            printArray(playerTwo);
-        }
+        printPlayerNumbers(playerOne, i);
+        printPlayerNumbers(playerTwo, i);
     }
 
     private int enterNumber(Player player) {
@@ -54,7 +47,7 @@ public class GuessNumber {
         return in.nextInt();
     }
 
-    private boolean checkNumber(Player player) {
+    private boolean checkNumber(Player player, int iteration) {
         if (player.getNumber() != randomNumber) {
             if (player.getNumber() < randomNumber) {
                 System.out.println("Введенное " + player.getName() + " число меньше того, что загадал компьютер");
@@ -63,22 +56,16 @@ public class GuessNumber {
             }
             return false;
         } else {
-            System.out.println(player.getName() + " угадал!");
+            System.out.println("Игрок " + player.getName() + " угадал число " + randomNumber + " с " + (iteration + 1) + " попытки");
             return true;
         }
     }
 
-    private void printArray(Player player) {
+    private void printPlayerNumbers(Player player, int length) {
         System.out.print("Массив игрока " + player.getName() + " :");
-        for (int i = 0; i < player.getNumbers().length; i++) {
-            System.out.print(player.getNumbers()[i] + " ");
+        for (int value : player.getNumbers(length+1)) {
+            System.out.print(value + " ");
         }
 		System.out.println();
-    }
-
-    public void checkCountOfTries(Player player) {
-        if (player.getNumbers().length == 10) {
-            System.out.println("У " + player.getName() + " закончились попытки");
-        }
     }
 }

@@ -6,13 +6,13 @@ public class GuessNumberTest {
 	public static void main(String[] args) {
 		String userDesire = "";
 		Scanner in = new Scanner(System.in, "UTF-8");
+		System.out.print("Введите имя первого игрока : ");
+		String playerOneName = in.nextLine();
+		Player playerOne = new Player(playerOneName);
+		System.out.print("Введите имя второго игрока : ");
+		String playerTwoName = in.nextLine();
+		Player playerTwo = new Player(playerTwoName);
 		do {
-			System.out.print("Введите имя первого игрока : ");
-			String playerOneName = in.nextLine();
-			Player playerOne = new Player(playerOneName);
-			System.out.print("Введите имя второго игрока : ");
-			String playerTwoName = in.nextLine();
-			Player playerTwo = new Player(playerTwoName);
 			GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
 			guessNumber.playGame();
 			do {
