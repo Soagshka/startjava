@@ -1,8 +1,7 @@
 package com.startjava.lesson2_3_4.game;
 
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class GuessNumber {
     private Player playerOne;
@@ -21,22 +20,25 @@ public class GuessNumber {
         System.out.println("У вас 10 попыток");
         int i;
         for (i = 0; i < 10; i++) {
-            playerOne.setNumber(enterNumber(playerOne));
-            playerOne.setNumber(playerOne.getNumber(), i);
-            if (checkNumber(playerOne, i)) {
+            if (isWin(playerOne, i)) {
                 break;
             }
 
-            playerTwo.setNumber(enterNumber(playerTwo));
-            playerTwo.setNumber(playerTwo.getNumber(), i);
-            if (checkNumber(playerTwo, i)) {
+            if (isWin(playerTwo, i)) {
                 break;
             }
         }
-        printPlayerNumbers(playerOne, i);
-        printPlayerNumbers(playerTwo, i);
+        printPlayerNumbers(playerOne);
+        printPlayerNumbers(playerTwo);
         playerOne.clear(i);
         playerTwo.clear(i);
+    }
+
+    private boolean isWin(Player player, int iteration) {
+        player.setTriesCount(iteration);
+        int playerNumber = enterNumber(player);
+        player.setNumber(playerNumber, iteration);
+        return checkNumber(player, iteration, playerNumber);
     }
 
     private int enterNumber(Player player) {
@@ -44,9 +46,9 @@ public class GuessNumber {
         return in.nextInt();
     }
 
-    private boolean checkNumber(Player player, int iteration) {
-        if (player.getNumber() != randomNumber) {
-            if (player.getNumber() < randomNumber) {
+    private boolean checkNumber(Player player, int iteration, int number) {
+        if (number != randomNumber) {
+            if (number < randomNumber) {
                 System.out.println("Введенное " + player.getName() + " число меньше того, что загадал компьютер");
             } else {
                 System.out.println("Введенное " + player.getName() + " число больше того, что загадал компьютер");
@@ -61,9 +63,9 @@ public class GuessNumber {
         }
     }
 
-    private void printPlayerNumbers(Player player, int length) {
-        System.out.print("Массив игрока " + player.getName() + " :");
-        for (int num : player.getNumbers(length + 1)) {
+    private void printPlayerNumbers(Player player) {
+        System.out.print("Массив игрока " + player.getName() + " : ");
+        for (int num : player.getNumbers()) {
             System.out.print(num + " ");
         }
         System.out.println();

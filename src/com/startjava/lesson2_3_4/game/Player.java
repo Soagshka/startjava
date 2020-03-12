@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 	private String name;
-	private int number;
 	private int[] numbers = new int[10];
+	private int triesCount;
 
 	public Player(String name) {
 		this.name = name;
@@ -15,19 +15,15 @@ public class Player {
 		return name;
 	}
 
-	public int getNumber() {
-		return number;
+	public void setTriesCount(int triesCount) {
+		this.triesCount = triesCount;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	public int[] getNumbers(int length) {
-		if (length <10) {
-			return Arrays.copyOf(numbers, length);
+	public int[] getNumbers() {
+		if (triesCount <10) {
+			return Arrays.copyOf(numbers, triesCount + 1);
 		} else {
-			return Arrays.copyOf(numbers, length - 1);
+			return Arrays.copyOf(numbers, triesCount - 1);
 		}
 	}
 
