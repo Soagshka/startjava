@@ -11,31 +11,26 @@ public class Player {
 		this.name = name;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public void setTriesCount(int triesCount) {
 		this.triesCount = triesCount;
 	}
 
-	public int[] getNumbers() {
-		if (triesCount <10) {
-			return Arrays.copyOf(numbers, triesCount + 1);
-		} else {
-			return Arrays.copyOf(numbers, triesCount - 1);
-		}
+	public String getName() {
+		return name;
 	}
 
+	public int[] getNumbers() {
+		return Arrays.copyOf(numbers, triesCount + 1);
+	}
+
+	public int getNumber(int iteration) {
+		return numbers[iteration];
+	}
 	public void setNumber(int number, int index) {
 		numbers[index] = number;
 	}
 
-	public void clear(int toIndex) {
-		if (toIndex < 10) {
-			Arrays.fill(numbers, 0, toIndex + 1, 0);
-		} else {
-			Arrays.fill(numbers, 0);
-		}
+	public void clear() {
+		Arrays.fill(numbers, 0, numbers.length, 0);
 	}
 }

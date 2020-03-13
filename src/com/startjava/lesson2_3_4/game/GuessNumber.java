@@ -20,6 +20,8 @@ public class GuessNumber {
         System.out.println("У вас 10 попыток");
         int i;
         for (i = 0; i < 10; i++) {
+            playerOne.setTriesCount(i);
+            playerTwo.setTriesCount(i);
             if (isWin(playerOne, i)) {
                 break;
             }
@@ -30,15 +32,14 @@ public class GuessNumber {
         }
         printPlayerNumbers(playerOne);
         printPlayerNumbers(playerTwo);
-        playerOne.clear(i);
-        playerTwo.clear(i);
+        playerOne.clear();
+        playerTwo.clear();
     }
 
-    private boolean isWin(Player player, int iteration) {
-        player.setTriesCount(iteration);
+    private boolean isWin(Player player, int i) {
         int playerNumber = enterNumber(player);
-        player.setNumber(playerNumber, iteration);
-        return checkNumber(player, iteration, playerNumber);
+        player.setNumber(playerNumber, i);
+        return checkNumber(player, i);
     }
 
     private int enterNumber(Player player) {
@@ -46,9 +47,9 @@ public class GuessNumber {
         return in.nextInt();
     }
 
-    private boolean checkNumber(Player player, int iteration, int number) {
-        if (number != randomNumber) {
-            if (number < randomNumber) {
+    private boolean checkNumber(Player player, int iteration) {
+        if (player.getNumber(iteration) != randomNumber) {
+            if (player.getNumber(iteration) < randomNumber) {
                 System.out.println("Введенное " + player.getName() + " число меньше того, что загадал компьютер");
             } else {
                 System.out.println("Введенное " + player.getName() + " число больше того, что загадал компьютер");
