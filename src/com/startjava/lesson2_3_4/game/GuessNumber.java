@@ -18,15 +18,13 @@ public class GuessNumber {
         Random random = new Random();
         randomNumber = random.nextInt(101);
         System.out.println("У вас 10 попыток");
-        int i;
-        for (i = 0; i < 10; i++) {
-            playerOne.setTriesCount(i);
-            playerTwo.setTriesCount(i);
-            if (isWin(playerOne, i)) {
+        int iteration;
+        for (iteration = 0; iteration < 10; iteration++) {
+            if (doAction(playerOne, iteration)) {
                 break;
             }
 
-            if (isWin(playerTwo, i)) {
+            if (doAction(playerTwo, iteration)) {
                 break;
             }
         }
@@ -36,10 +34,9 @@ public class GuessNumber {
         playerTwo.clear();
     }
 
-    private boolean isWin(Player player, int i) {
-        int playerNumber = enterNumber(player);
-        player.setNumber(playerNumber, i);
-        return checkNumber(player, i);
+    private boolean doAction(Player player, int iteration) {
+        player.setNumber(enterNumber(player), iteration);
+        return checkNumber(player, iteration);
     }
 
     private int enterNumber(Player player) {
