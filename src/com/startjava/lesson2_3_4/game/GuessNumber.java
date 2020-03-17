@@ -18,13 +18,12 @@ public class GuessNumber {
         Random random = new Random();
         randomNumber = random.nextInt(101);
         System.out.println("У вас 10 попыток");
-        int iteration;
-        for (iteration = 0; iteration < 10; iteration++) {
-            if (doAction(playerOne, iteration)) {
+        for (int i = 0; i < 10; i++) {
+            if (makeMove(playerOne, i)) {
                 break;
             }
 
-            if (doAction(playerTwo, iteration)) {
+            if (makeMove(playerTwo, i)) {
                 break;
             }
         }
@@ -34,9 +33,9 @@ public class GuessNumber {
         playerTwo.clear();
     }
 
-    private boolean doAction(Player player, int iteration) {
-        player.setNumber(enterNumber(player), iteration);
-        return checkNumber(player, iteration);
+    private boolean makeMove(Player player, int i) {
+        player.setNumber(enterNumber(player), i);
+        return checkNumber(player, i);
     }
 
     private int enterNumber(Player player) {
@@ -44,19 +43,19 @@ public class GuessNumber {
         return in.nextInt();
     }
 
-    private boolean checkNumber(Player player, int iteration) {
-        if (player.getNumber(iteration) != randomNumber) {
-            if (player.getNumber(iteration) < randomNumber) {
+    private boolean checkNumber(Player player, int i) {
+        if (player.getNumber(i) != randomNumber) {
+            if (player.getNumber(i) < randomNumber) {
                 System.out.println("Введенное " + player.getName() + " число меньше того, что загадал компьютер");
             } else {
                 System.out.println("Введенное " + player.getName() + " число больше того, что загадал компьютер");
             }
-            if (iteration == 9) {
+            if (i == 9) {
                 System.out.println("У игрока " + player.getName() + " кончились попытки!");
             }
             return false;
         } else {
-            System.out.println("Игрок " + player.getName() + " угадал число " + randomNumber + " с " + (iteration + 1) + " попытки");
+            System.out.println("Игрок " + player.getName() + " угадал число " + randomNumber + " с " + (i + 1) + " попытки");
             return true;
         }
     }

@@ -19,13 +19,13 @@ public class Player {
         return Arrays.copyOf(numbers, triesCount + 1);
     }
 
-    public int getNumber(int iteration) {
-        return numbers[iteration];
+    public int getNumber(int i) {
+        return numbers[i];
     }
 
-    public void setNumber(int number, int index) {
-        triesCount = index;
-        numbers[index] = number;
+    public void setNumber(int number, int i) {
+        triesCount = i;
+        numbers[i] = number;
     }
 
     public void clear() {

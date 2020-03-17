@@ -7,11 +7,9 @@ public class GuessNumberTest {
         String userDesire = "";
         Scanner in = new Scanner(System.in, "UTF-8");
         System.out.print("Введите имя первого игрока : ");
-        String playerOneName = in.nextLine();
-        Player playerOne = new Player(playerOneName);
+        Player playerOne = new Player(in.nextLine());
         System.out.print("Введите имя второго игрока : ");
-        String playerTwoName = in.nextLine();
-        Player playerTwo = new Player(playerTwoName);
+        Player playerTwo = new Player(in.nextLine());
         do {
             GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
             guessNumber.playGame();
